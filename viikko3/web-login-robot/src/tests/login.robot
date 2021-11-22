@@ -17,6 +17,11 @@ Login With Incorrect Password
     Submit Credentials
     Login Should Fail With Message  Invalid username or password
 
+Login With Nonexistent Username
+    Set Username  kallk
+    Set Password  kakakak
+    Submit Credentials
+    Login Should Fail with Message  Invalid username or password
 *** Keywords ***
 Login Should Succeed
     Main Page Should Be Open

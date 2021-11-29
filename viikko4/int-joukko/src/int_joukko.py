@@ -4,39 +4,29 @@ OLETUSKASVATUS = 5
 
 class IntJoukko:
     def __init__(self, kapasiteetti=None, kasvatuskoko=None):
+        self.kapasiteetti = kapasiteetti
         if kapasiteetti is None:
             self.kapasiteetti = KAPASITEETTI
         elif not isinstance(kapasiteetti, int) or kapasiteetti < 0:
             raise Exception("Väärä kapasiteetti")  # heitin vaan jotain :D
-        else:
-            self.kapasiteetti = kapasiteetti
 
+        self.kasvatuskoko = kasvatuskoko
         if kasvatuskoko is None:
             self.kasvatuskoko = OLETUSKASVATUS
         elif not isinstance(kapasiteetti, int) or kapasiteetti < 0:
             raise Exception("kapasiteetti2")  # heitin vaan jotain :D
-        else:
-            self.kasvatuskoko = kasvatuskoko
 
         self.ljono = [0] * self.kapasiteetti
 
         self.alkioiden_lkm = 0
 
     def kuuluu(self, n):
-        on = 0
-
         for i in range(0, self.alkioiden_lkm):
             if n == self.ljono[i]:
-                on = on + 1
-
-        if on > 0:
-            return True
-        else:
-            return False
+                return True
+        return False
 
     def lisaa(self, n):
-        ei_ole = 0
-
         if self.alkioiden_lkm == 0:
             self.ljono[0] = n
             self.alkioiden_lkm = self.alkioiden_lkm + 1
